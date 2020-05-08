@@ -1,0 +1,33 @@
+<%- include("./partials/headers/cdn.ejs") %>
+<link rel="stylesheet" href="/stylesheets/blog.css">
+<title>Blog</title>
+<%- include("./partials/headers/navbar.ejs") %>
+
+<div class="container row" style="margin:auto">
+    <div class="col-12 d-flex justify-content-center">
+        <%var blog = blogs[Math.floor(Math.random()*blogs.length)]%>
+        <div class="col-12 card m-3  p-0 w-100" style="width: 18rem;">
+            <img src="<%= blog.image%>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><%= blog.title%></h5>
+                <p class="card-text"><%- blog.description.substring(0,200)%>
+                <a href="/blog/<%= blog.id%>">Read More...</a></p>
+            </div>
+        </div>
+    </div>
+    <% blogs.forEach(function(blog, index){ %>    
+    <div class="col-lg-3 col-md-4 col-sm-12">
+        <div class="card mb-3">
+            <img src="<%= blog.image%>"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><%= blog.title%>...</h5>
+                <p class="card-text"></p>
+                <a href="/blog/<%= blog.id%>" class="btn btn-primary w-100">Read Post</a>
+            </div>
+        </div>
+    </div>      
+    <% }); %>
+</div>
+
+<%- include("./partials/footer.ejs") %>

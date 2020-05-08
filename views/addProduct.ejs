@@ -1,0 +1,90 @@
+<%- include("./partials/headers/cdn.ejs") %>
+
+<link rel="stylesheet" href="/stylesheets/main.css">
+<title>Add New Product</title>
+
+<%- include("./partials/headers/navbar.ejs") %>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="card p-3 shadow-lg my-3 mx-auto">
+                <div class="card-body">
+                    <h2 class="text-monospace card-title text-center m-3 font-weight-bold">ADD A NEW PRODUCT</h2>
+
+                    <form action="/otc" method="POST">
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Name</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="product[name]" placeholder="Name">
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Image URL</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="product[image]" placeholder="Image URL...">
+                        </div>
+                        
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Price</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="product[price]" placeholder="Price in Rs">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Category</label>
+                            <select class="form-control form-control-lg rounded-pill" name="product[category]">
+                                <option value="Fitness & Supplements">Fitness & Supplements</option>
+                                <option value="Ayurveda">Ayurveda</option>
+                                <option value="Sports & Gym Equipment">Sports & Gym Equipment</option>
+                                <!-- <option value="4">4</option> -->
+                            </select>
+                        </div>
+                        <!-- <div class="form-group mt-3">
+                            <label class="font-weight-bold">Category</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="product[category]" placeholder="Category">
+                        </div> -->
+                        <hr>
+                        <label class="font-weight-bold">DESCRIPTION</label>
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">About</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="product[description][about]" placeholder="About">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Ingredients</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="product[description][ingredients]" placeholder="Ingredients">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Benefits</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="product[description][benefits]" placeholder="Benefits">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Dosage</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="product[description][dosage]" placeholder="Dosage">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Storage</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="product[description][storage]" placeholder="Storage">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Safety</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="product[description][safety]" placeholder="Safety">
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-primary w-100 my-3 rounded-pill">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<%- include("./partials/footer.ejs") %>

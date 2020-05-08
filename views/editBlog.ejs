@@ -1,0 +1,55 @@
+<%- include("./partials/headers/cdn.ejs") %>
+
+<link rel="stylesheet" href="/stylesheets/main.css">
+<title>Edit Blog</title>
+
+<%- include("./partials/headers/navbar.ejs") %>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8 ">
+            <div class="card p-3 shadow-lg my-3 mx-auto">
+                <div class="card-body">
+                    <h2 class="text-monospace card-title text-center m-3 font-weight-bold">EDITING THE BLOG POST</h2>
+
+                    <form action="/blog/<%= blog._id%>?_method=PUT" method="POST">
+                        <div class="form-group  mt-3">
+                            <label class="font-weight-bold">Title</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="blog[title]" placeholder="Blog Title..."
+                            value = "<%= blog.title%>">
+                        </div>
+                        <div class="form-group  mt-3">
+                            <label class="font-weight-bold">Author</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="blog[author]" placeholder="Author name..."
+                            value = "<%= blog.author%>">
+                        </div>
+
+                        <div class="form-group  mt-3">
+                            <label class="font-weight-bold">Image URL</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="blog[image]" placeholder="Image URL..."
+                            value = "<%= blog.image%>">
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Description</label>
+                            <textarea class="form-control form-control-lg rounded-pill" 
+                            type="textarea" name="blog[description]" placeholder="Description..." rows="7"
+                            ><%= blog.description%></textarea>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-lg btn-primary w-100 my-3 rounded-pill">Update</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<%- include("./partials/footer.ejs") %>

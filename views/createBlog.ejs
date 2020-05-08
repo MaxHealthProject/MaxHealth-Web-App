@@ -1,0 +1,50 @@
+<%- include("./partials/headers/cdn.ejs") %>
+
+<link rel="stylesheet" href="/stylesheets/main.css">
+<title>Create New Blog</title>
+
+<%- include("./partials/headers/navbar.ejs") %>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="card p-3 shadow-lg my-3 mx-auto">
+                <div class="card-body">
+                    <h2 class="text-monospace card-title text-center m-3 font-weight-bold">ADD A NEW BLOG POST</h2>
+
+                    <form action="/blog" method="POST">
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Title</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="blog[title]" placeholder="Blog Title...">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Author</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="blog[author]" placeholder="Author name...">
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Image URL</label>
+                            <input class="form-control form-control-lg rounded-pill" 
+                            type="text" name="blog[image]" placeholder="Image URL...">
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label class="font-weight-bold">Description</label>
+                            <textarea class="form-control form-control-lg rounded-pill" 
+                            type="textarea" name="blog[description]" placeholder="Description..." rows="7"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-lg btn-primary w-100 my-3 rounded-pill">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<%- include("./partials/footer.ejs") %>

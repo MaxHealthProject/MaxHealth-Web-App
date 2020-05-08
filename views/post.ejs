@@ -1,0 +1,25 @@
+<%- include("./partials/headers/cdn.ejs") %>
+<link rel="stylesheet" href="/stylesheets/blog.css">
+<%- include("./partials/headers/navbar.ejs") %>
+
+<div class="container my-0 my-md-3 text-white rounded"  style="background-color: rgb(34, 167, 240);">
+    <div class="row p-3">
+            <div class="thumbnail" style="margin:auto auto">
+                <div class="p-3 mx-0 my-3 m-md-3  jumbotron border border-white" style="background-color: rgb(34, 167, 240);">
+                    <h1 class = "font-weight-bold text-monospace"><%=blog.title%></h1>
+                    <h5 class="text-right">
+                        <em>~<%=blog.author%></em>
+                    </h5>
+                </div>
+                <div class="thumbnail mx-0 my-3 m-md-3 "> 
+                    <img class="img-responsive rounded" src="<%= blog.image %>" style="width:100%;">
+                </div>
+                <div class="well mx-0 my-3 m-md-3 border border-white p-3 rounded">
+                    <br>
+                    <p><%- blog.description %></p>
+                </div>
+            </div>
+    </div>
+</div>
+
+<%- include("./partials/footer.ejs") %>

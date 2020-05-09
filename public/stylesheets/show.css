@@ -7,6 +7,10 @@ body {
     height: auto;
 }
 
+#btnUpdate,#btnDelete{
+    display: inline-block;
+}
+
 @media screen and (min-width:768px){
     .zoom{
         transition: transform .3s;

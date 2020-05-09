@@ -79,8 +79,8 @@ app.use(cartRoutes);
 app.use(transactionRoutes);
 
 
-var fpgrowthAlgo=require("./fpgrowthAlgo.js");
-fpgrowthAlgo;
+//var fpgrowthAlgo=require("./fpgrowthAlgo.js");
+//fpgrowthAlgo;
 
 app.get("/*",function(req,res){
     res.render("notFound.ejs");

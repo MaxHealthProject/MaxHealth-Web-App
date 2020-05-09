@@ -73,9 +73,17 @@
                         <a class="nav-link" href="/signup">Sign Up</a>
                     </li>
                     <% }else{ %>
+
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Hi <%= currentUser.username %></a>
                     </li>
+
+                    <% if(currentUser.isAdmin){ %>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/otc/new">Add new product</a>
+                    </li>
+                    <% } %>
+
                     <li class="nav-item active">
                         <a class="nav-link" href="/logout">Logout</a>
                     </li>

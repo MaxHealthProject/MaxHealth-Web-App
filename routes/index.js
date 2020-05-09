@@ -25,16 +25,16 @@ router.get("/featured", function (req, res) {
             res.redirect("/");
         } else {
             var featuredBlog = [];
-            Blog.find({},function(err2,foundBlogs){
-                if(err2){
+            Blog.find({}, function (err2, foundBlogs) {
+                if (err2) {
                     console.log("Unable to find Blogs from db");
                     res.redirect("/");
                 }
-                else{
-                    var x = Math.floor(Math.random()*(foundBlogs.length-3));
-                    featuredBlog = foundBlogs.splice(x,3);
+                else {
+                    var x = Math.floor(Math.random() * (foundBlogs.length - 3));
+                    featuredBlog = foundBlogs.splice(x, 3);
                     // console.log(x);
-                    res.render("featured.ejs", { products: foundProducts , blogs : featuredBlog});
+                    res.render("featured.ejs", { products: foundProducts, blogs: featuredBlog });
 
                 }
             });
@@ -57,13 +57,19 @@ router.get("/otc", function (req, res) {
 
 });
 
-router.post("/otc", function(req, res){
+
+// Add new Product
+router.get("/otc/new", isAdmin, function (req, res) {
+    res.render("addProduct.ejs");
+});
+
+router.post("/otc", isAdmin, function (req, res) {
     // console.log(req.body.product);
-    Product.create(req.body.product, function(err, newProductAdded){
-        if(err){
+    Product.create(req.body.product, function (err, newProductAdded) {
+        if (err) {
             console.log(err);
         }
-        else{
+        else {
             Product.find({}, function (err, foundProducts) {
                 if (err) {
                     res.redirect("notFound.ejs");
@@ -74,11 +80,8 @@ router.post("/otc", function(req, res){
         }
     })
 });
-router.get("/otc/addNewProduct",function(req,res){
-    res.render("addProduct.ejs");
-});
-router.get("/otc/find/:id",function(req,res){
-    Product.find({category:req.params.id}, function (err, foundProducts) {
+router.get("/otc/find/:id", function (req, res) {
+    Product.find({ category: req.params.id }, function (err, foundProducts) {
         if (err) {
             res.render("notFound.ejs");
         } else {
@@ -87,7 +90,8 @@ router.get("/otc/find/:id",function(req,res){
     });
 });
 
-// Show OTC product route
+
+// Show OTC product
 router.get("/otc/:id", function (req, res) {
     var id = req.params.id;
 
@@ -100,43 +104,50 @@ router.get("/otc/:id", function (req, res) {
         }
     });
 });
-router.get("/otc/:id/editThisProduct", function (req, res) {
+
+
+// Edit Product
+router.get("/otc/:id/edit", isAdmin, function (req, res) {
     Product.findById(req.params.id, function (err, foundProduct) {
         if (err) {
             res.render("notFound.ejs");
         } else {
-            res.render("editProduct.ejs",{
-                product:foundProduct
+            res.render("editProduct.ejs", {
+                product: foundProduct
             });
         }
     });
 });
-router.put("/otc/:id", function (req, res) {
-    Product.findByIdAndUpdate(req.params.id, req.body.product, 
-        function(err, updatedProduct){
-            if(err){
+router.put("/otc/:id", isAdmin, function (req, res) {
+    Product.findByIdAndUpdate(req.params.id, req.body.product,
+        function (err, updatedProduct) {
+            if (err) {
                 res.render("notFound.ejs");
             }
-            else{
-                res.redirect('/otc/'+req.params.id);
+            else {
+                res.redirect('/otc/' + req.params.id);
             }
-        }) 
+        })
 });
-router.get("/otc/:id/deleteThisProduct", function (req, res) {
+
+
+// Delete Product
+router.delete("/otc/:id", isAdmin, function (req, res) {
     Product.findByIdAndRemove(req.params.id, function (err) {
         if (err) {
             res.render("notFound.ejs");
         } else {
-            res.render("notFound.ejs");
+            res.redirect("/otc");
         }
     });
 });
+
 
 function fetchBoughtTogetherProducts(res, id, foundProduct, callback) {
     BoughtTogether.find({ items: id }, function (err, data) {
         var IdArr = [];
         data.some(function (obj, index) {
-            if(IdArr.length>=6){   // fix number of suggested products
+            if (IdArr.length >= 6) {   // fix number of suggested products
                 return true; // to break the loop
             }
             var secondItemIndex = 1 - obj.items.indexOf(id);
@@ -158,12 +169,21 @@ function renderShowPage(res, foundProduct, IdArr) {
             suggestedProducts.forEach(function (suggestedProduct, index) {
                 console.log(suggestedProduct.name);
             });
-            res.render("show.ejs", { foundProduct: foundProduct, suggestedProducts: suggestedProducts});
+            res.render("show.ejs", { foundProduct: foundProduct, suggestedProducts: suggestedProducts });
         }
 
     });
 
 }
 
+
+// Middleware
+function isAdmin(req, res, next) {
+    if (req.isAuthenticated() && req.user.isAdmin) {
+        return next();
+    } else {
+        res.render("notAdmin.ejs");
+    }
+}
 
 module.exports = router;

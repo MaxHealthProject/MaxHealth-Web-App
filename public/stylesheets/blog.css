@@ -2,6 +2,10 @@ body {
     background: linear-gradient(to right, #514A9D,#24C6DC);
 }
 
+#btnUpdate,#btnDelete{
+    display: inline-block;
+}
+
 @media screen and (min-width:768px){
     .zoom{
         transition: transform .3s;

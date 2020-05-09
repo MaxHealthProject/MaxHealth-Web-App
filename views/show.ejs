@@ -48,29 +48,19 @@
 
         </div>
 
+        <% if(currentUser && currentUser.isAdmin){ %>
+        <div class="col-12 text-center my-2">
+            <a id="btnUpdate" href="/otc/<%= foundProduct.id %>/edit" class="btn btn-success mx-3 zoom">Update
+                Product</a>
 
-        <% suggestedProducts.forEach(function(product, index){ %>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2 my-4 zoom d-flex justify-content-around mx-auto">
-                <a href="/otc/<%= product.id %>" style="text-decoration:none">
-                    <div class="card text-center pt-3 border border-primary shadow" style="width: 10rem; height: 18rem;">
-                        <img id="productImg" src="<%= product.image %>" class="card-img-top mx-auto" alt="product image">
-                        <div class="card-body">
-                            <% if(product.name.length>20){ %>
-                            <% var smallName=product.name.substring(0,21)+"..."; %>
-                            <h5 class="card-title text-dark font-weight-light"><%= smallName %></h5>
-                            <% }else{ %>
-                            <h5 class="card-title text-dark font-weight-light"><%= product.name %></h5>
-                            <% } %>
-                        </div>
-                        <div class="card-footer bg-success text-white font-weight">₹ <%= product.price %> /-</div>
-                    </div>
-                </a>
-            </div>
-    
-            <% }); %>
+            <form action="/otc/<%= foundProduct.id %>?_method=DELETE" method="POST" id="btnDelete">
+                <button type="submit" class="btn btn-danger zoom">Delete Product</button>
+            </form>
+        </div>
 
+        <% } %>
 
-        <div class="col-12 my-5 mx-auto py-3 text-white border border-white shadow">
+        <div class="col-12 my-3 mx-auto py-3 text-white border border-white shadow">
             <h3><span><i class="far fa-file-alt"></i></span> Description</h3>
 
             <hr class="bg-white">
@@ -98,12 +88,34 @@
             <h5><span><i class="fas fa-temperature-low"></i></span> Storage:-</h5>
             <p><%= foundProduct.description.storage %></p>
             <% } %>
-            
+
             <% if(foundProduct.description.safety!=""){ %>
             <h5><span><i class="fas fa-times-circle"></i></span> Safety:-</h5>
             <p><%= foundProduct.description.safety %></p>
             <% } %>
         </div>
+
+
+        <% suggestedProducts.forEach(function(product, index){ %>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 zoom d-flex justify-content-around mx-auto">
+            <a href="/otc/<%= product.id %>" style="text-decoration:none">
+                <div class="card my-5 text-center pt-3 border border-primary shadow"
+                    style="width: 10rem; height: 20rem;">
+                    <img id="productImg" src="<%= product.image %>" class="card-img-top mx-auto" alt="product image">
+                    <div class="card-body">
+                        <% if(product.name.length>20){ %>
+                        <% var smallName=product.name.substring(0,21)+"..."; %>
+                        <h5 class="card-title text-dark font-weight-light"><%= smallName %></h5>
+                        <% }else{ %>
+                        <h5 class="card-title text-dark font-weight-light"><%= product.name %></h5>
+                        <% } %>
+                    </div>
+                    <div class="card-footer bg-success text-white font-weight">₹ <%= product.price %> /-</div>
+                </div>
+            </a>
+        </div>
+
+        <% }); %>
 
     </div>
 </div>

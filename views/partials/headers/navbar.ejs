@@ -3,68 +3,91 @@
 <body class="d-flex flex-column h-100">
 
     <!-- navbar start-->
-    <div class = wrapper>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark py-0">
+    <div class=wrapper>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark py-0">
 
-        <a class="navbar-brand" href="/">
-            <img src="/assets/logo_white.png" alt="brand logo" height="70" width="70">MaxHealth
-        </a>
+            <a class="navbar-brand" href="/">
+                <img src="/assets/logo_white.png" alt="brand logo" height="70" width="70">MaxHealth
+            </a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/featured">Home</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/blog">Blog</a>
-                </li>
-                <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Category
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="/otc/find/Ayurveda">Ayurveda</a>
-                      <a class="dropdown-item" href="/otc/find/Fitness & Supplements">Fitness & Supplements</a>
-                      <a class="dropdown-item" href="/otc/find/Sports & Gym Equipment">Sports & Gym Equipment</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/featured">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/blog">Blog</a>
+                    </li>
+                    <div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Category
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/otc/find/Ayurveda">Ayurveda</a>
+                            <a class="dropdown-item" href="/otc/find/Fitness & Supplements">Fitness & Supplements</a>
+                            <a class="dropdown-item" href="/otc/find/Sports & Gym Equipment">Sports & Gym Equipment</a>
+                        </div>
                     </div>
-                  </div>
-            </ul>
+                </ul>
 
-            <form action="/search" method="POST" class="form-inline my-2 my-lg-0 mr-auto">
-                <input class="form-control mr-sm-2" type="search" name="searchText" placeholder="Search" aria-label="Search">
-                <button class="btn my-2 my-sm-0 bg-dark text-white" type="submit"><span><i
-                            class="fas fa-search"></i></span></button>
-            </form>
+                <form action="/search" method="POST" class="form-inline my-lg-0 mr-auto">
+                    <div class="row">
+                        <div class="col-10 my-auto">
+                            <input class="form-control mr-sm-2" type="search" name="searchText" placeholder="Search"
+                                aria-label="Search">
+                        </div>
 
-            <ul class="navbar-nav">
-                <% if(!currentUser){ %>
+                        <div class="col-2">
+                            <button class="btn my-2 my-sm-0 bg-dark text-white" type="submit"><span><i
+                                        class="fas fa-search"></i></span></button>
+                        </div>
+
+                    </div>
+                </form>
+
+                <!-- <div class="row">
+                    <div class="col-4 my-auto">
+                        <a class="nav-link" href="/login">Login</a>
+                    </div>
+                    <div class="col-4 my-auto">
+                        <a class="nav-link" href="/signup">Sign Up</a>
+                    </div>
+                    <div class="col-4 my-auto">
+                        <a class="nav-link" href="/login">Login</a>
+                    </div>
+
+                </div> -->
+
+                <ul class="navbar-nav">
+                    <% if(!currentUser){ %>
                     <li class="nav-item active">
                         <a class="nav-link" href="/login">Login</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="/signup">Sign Up</a>
                     </li>
-                <% }else{ %>
+                    <% }else{ %>
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Hi <%= currentUser.username %></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="/logout">Logout</a>
                     </li>
-                <% } %>
-                <li class="nav-item active">
-                    <a class="nav-link zoom" href="/cart">
-                        <span><i class="fas fa-shopping-cart"></i></span>
-                    </a>
-                </li>
-            </ul>
+                    <% } %>
+                    <li class="nav-item active">
+                        <a class="nav-link zoom" href="/cart">
+                            <span><i class="fas fa-shopping-cart"></i></span>
+                        </a>
+                    </li>
+                </ul>
 
-        </div>
-    </nav>
+            </div>
+        </nav>
 
-    <!-- navbar end -->
+        <!-- navbar end -->

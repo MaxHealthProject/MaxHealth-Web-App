@@ -23,28 +23,33 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/blog">Blog</a>
                     </li>
-                    <div class="dropdown">
-                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Category
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="/otc/find/Ayurveda">Ayurveda</a>
-                            <a class="dropdown-item" href="/otc/find/Fitness & Supplements">Fitness & Supplements</a>
-                            <a class="dropdown-item" href="/otc/find/Sports & Gym Equipment">Sports & Gym Equipment</a>
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn btn-dark pl-0 pl-md-2 dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Category
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/otc/find/Ayurveda">Ayurveda</a>
+                                <a class="dropdown-item" href="/otc/find/Fitness & Supplements">Fitness &
+                                    Supplements</a>
+                                <a class="dropdown-item" href="/otc/find/Sports & Gym Equipment">Sports & Gym
+                                    Equipment</a>
+                            </div>
                         </div>
-                    </div>
+                    </li>
                 </ul>
 
-                <form action="/search" method="POST" class="form-inline my-lg-0 mr-auto">
-                    <div class="row">
-                        <div class="col-10 my-auto">
-                            <input class="form-control mr-sm-2" type="search" name="searchText" placeholder="Search"
+
+                <form action="/search" method="POST" class="form-inline mr-auto">
+                    <div class="row my-2 my-md-3">
+                        <div class="col-10">
+                            <input class="form-control" type="search" name="searchText" placeholder="Search"
                                 aria-label="Search">
                         </div>
 
                         <div class="col-2">
-                            <button class="btn my-2 my-sm-0 bg-dark text-white" type="submit"><span><i
+                            <button class="btn px-0 bg-dark text-white" type="submit"><span><i
                                         class="fas fa-search"></i></span></button>
                         </div>
 

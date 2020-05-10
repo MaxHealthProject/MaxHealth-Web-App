@@ -80,6 +80,8 @@ router.post("/otc", isAdmin, function (req, res) {
         }
     })
 });
+
+
 router.get("/otc/find/:id", function (req, res) {
     Product.find({ category: req.params.id }, function (err, foundProducts) {
         if (err) {

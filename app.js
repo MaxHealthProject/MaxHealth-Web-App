@@ -2,7 +2,6 @@ var express = require("express");
 var app = express();
 var port = process.env.PORT ||3001;
 // require('dotenv').config()
-
 // MongoDB and mongoose
 var mongoose = require("mongoose");
 // mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/maxhealth", { useNewUrlParser: true, useUnifiedTopology: true });

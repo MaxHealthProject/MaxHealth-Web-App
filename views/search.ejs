@@ -42,7 +42,7 @@
         <% if(products.length>=1){ %>
 
             <% products.forEach(function(product, index){ %>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2 my-4 zoom d-flex justify-content-around mx-auto">
+                <div class="col-6 col-sm-6 col-md-4 col-lg-2 my-4 zoom d-flex justify-content-around mx-auto">
                     <a href="/otc/<%= product.id %>" style="text-decoration:none">
                         <div class="card text-center pt-3 border border-primary shadow" style="width: 10rem; height: 18rem;">
                             <img id="productImg" src="<%= product.image %>" class="card-img-top mx-auto" alt="product image">

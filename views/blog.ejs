@@ -25,14 +25,15 @@
         </div>
         <% blogs.forEach(function(blog, index){ %>
         <div class="col-lg-3 col-md-4 col-sm-12">
-            <div class="card mb-3">
-                <img src="<%= blog.image%>" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><%= blog.title%>...</h5>
-                    <p class="card-text"></p>
-                    <a href="/blog/<%= blog.id%>" class="btn btn-primary w-100">Read Post</a>
+            <a href="/blog/<%= blog.id %>" style="text-decoration:none">
+                <div class="card mb-3" style="height: 22rem;">
+                    <img src="<%= blog.image%>" class="card-img-top" style="height: 12rem;" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= blog.title%>...</h5>
+                    </div>
+                    <div class="card-footer bg-success text-white text-center font-weight">Read Post</div>
                 </div>
-            </div>
+            </a>
         </div>
         <% }); %>
     </div>

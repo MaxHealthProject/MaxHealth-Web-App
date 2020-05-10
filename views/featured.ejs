@@ -14,13 +14,19 @@
             <div id="carouselWithControl" class="carousel slide" data-ride="carousel" data-interval="2500">
                 <div class="carousel-inner shadow rounded">
                     <div class="carousel-item active">
-                        <img src="/assets/1200x250/healthProductsBanner.jpg" class="d-block w-100" alt="...">
+                        <a href="/otc/find/Fitness%20&%20Supplements">
+                            <img src="/assets/1200x250/healthProductsBanner.jpg" class="d-block w-100" alt="horlicks">
+                        </a>
                     </div>
                     <div class="carousel-item">
-                        <img src="/assets/1200x250/ayurvedaBanner.jpg" class="d-block w-100" alt="...">
+                        <a href="/otc/find/Ayurveda">
+                            <img src="/assets/1200x250/ayurvedaBanner.jpg" class="d-block w-100" alt="horlicks">
+                        </a>
                     </div>
                     <div class="carousel-item">
-                        <img src="/assets/1200x250/liveLifeBanner.jpg" class="d-block w-100" alt="...">
+                        <a href="/otc/find/Sports%20&%20Gym%20Equipment">
+                            <img src="/assets/1200x250/liveLifeBanner.jpg" class="d-block w-100" alt="horlicks">
+                        </a>
                     </div>
                     <div class="carousel-item">
                         <img src="/assets/1200x250/maxhealthBanner.jpg" class="d-block w-100" alt="...">
@@ -44,10 +50,14 @@
             <div id="carouselWithControl2" class="carousel slide" data-ride="carousel" data-interval="3000">
                 <div class="carousel-inner shadow rounded">
                     <div class="carousel-item active">
-                        <img src="/assets/754x440/horlicks.jpg" class="d-block w-100" alt="...">
+                        <a href="/otc/5eaa65a6a2fe753f240448bb">
+                            <img src="/assets/754x440/horlicks.jpg" class="d-block w-100" alt="horlicks">
+                        </a>
                     </div>
                     <div class="carousel-item">
-                        <img src="/assets/754x440/accucheck.jpg" class="d-block w-100" alt="...">
+                        <a href="/otc/5eb7bf84b7c87300173a08c3">
+                            <img src="/assets/754x440/accucheck.jpg" class="d-block w-100" alt="horlicks">
+                        </a>
                     </div>
                 </div>
 
@@ -67,8 +77,7 @@
             <div class="row">
 
                 <div class="col-12">
-                    <h3
-                        class="text-center text-white font-weight-light bg-danger my-3 py-2 shadow rounded">
+                    <h3 class="text-center text-white font-weight-light bg-danger my-3 py-2 shadow rounded">
                         Featured
                         Products</h3>
                 </div>
@@ -137,39 +146,17 @@
         </div>
         <% blogs.forEach(function(blog, index){ %>
         <div class="col-sm-4 text-center my-3">
-            <div class="card shadow">
-                <img src="<%= blog.image %>"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><%= blog.title %>...</h5>
-                    <!-- <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p> -->
-                    <a href="/blog/<%= blog.id %>" class="btn btn-primary w-100">Read Post</a>
+            <a href="/blog/<%= blog.id %>" style="text-decoration:none">
+                <div class="card shadow" style="height: 22rem;">
+                    <img src="<%= blog.image %>" class="card-img-top" style="height: 14rem;" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= blog.title %>...</h5>
+                    </div>
+                    <div class="card-footer bg-success text-white font-weight">Read Post</div>
                 </div>
-            </div>
+            </a>
         </div>
         <% }); %>
-        <!-- <div class="col-sm-4 text-center my-3">
-            <div class="card shadow">
-                <img src="https://detwxg7gzm61n.cloudfront.net/2020/02/21130600/Blog-55.jpg" class="card-img-top"
-                    alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">6 Smoothie Recipes For A Smooth Health!</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    <a href="/blog" class="btn btn-primary w-100">Read Post</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 text-center my-3">
-            <div class="card shadow">
-                <img src="https://detwxg7gzm61n.cloudfront.net/2020/02/06200250/Blog-1.jpg" class="card-img-top"
-                    alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Want To Be Happy? Meditation Is Your Best Bet!</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                    <a href="/blog" class="btn btn-primary w-100">Read Post</a>
-                </div>
-            </div>
-        </div> -->
 
     </div>
 

@@ -12,7 +12,14 @@ var Transaction = require("../models/transaction.js");
 
 // Account settings Route
 router.get("/account", isLoggedIn, function(req, res){
-    res.render("account.ejs");
+    User.findById(req.user.id, function(err, foundUser){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("account.ejs", {foundUser: foundUser});
+        }
+    });
+    
 });
 
 

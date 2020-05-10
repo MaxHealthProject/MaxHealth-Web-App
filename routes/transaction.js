@@ -32,14 +32,15 @@ router.post("/cart/transaction", isLoggedIn, function (req, res) {
 
 function generatePIdsArr(req, res, foundUser, cartAmount, callback) {
     var pIdsArr = [];
+    var userId= req.user.id;
     foundUser.cart.forEach(function (itemDetails, index) {
         pIdsArr.push(itemDetails.item);
     });
-    callback(req, res, pIdsArr, cartAmount);
+    callback(req, res, pIdsArr, userId, cartAmount);
 }
 
-function saveArrToDb(req, res, pIdsArr, cartAmount) {
-    Transaction.create({ pIds: pIdsArr, cartAmount: cartAmount }, function (err, data) {
+function saveArrToDb(req, res, pIdsArr, userId, cartAmount) {
+    Transaction.create({ pIds: pIdsArr, userId: userId, cartAmount: cartAmount }, function (err, data) {
         if (err) {
             console.log(err);
         } else {
@@ -50,10 +51,10 @@ function saveArrToDb(req, res, pIdsArr, cartAmount) {
                     console.log(err);
                 } else {
                     // run fpgrowth algo
-                    var fpgrowthAlgo = require("../fpgrowthAlgo.js");
-                    fpgrowthAlgo;
+                    //var fpgrowthAlgo = require("../fpgrowthAlgo.js");
+                    //fpgrowthAlgo;
                     // render homepage or successful trasaction page
-                    //res.redirect("/featured");
+                    res.redirect("/featured");
                 }
             });
             // User.findById(req.user.id, function (err, foundUser) {

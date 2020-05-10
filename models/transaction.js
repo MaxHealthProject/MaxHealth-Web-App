@@ -4,6 +4,7 @@ var transactionSchema = new mongoose.Schema({
     pIds: [
         String
     ],
+    userId: mongoose.Schema.Types.ObjectId,
     cartAmount: { type: Number, default: 0 }
 });
 

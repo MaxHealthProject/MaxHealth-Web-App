@@ -80,7 +80,17 @@
                     <% }else{ %>
 
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Hi <%= currentUser.username %></a>
+                        <div class="dropdown">
+                            <button class="btn btn-dark pl-0 pl-md-2 dropdown-toggle" type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Hi <%= currentUser.username %>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/account">Your Account</a>
+                                <a class="dropdown-item" href="/orders">Your Orders</a>
+                            </div>
+                        </div>
                     </li>
 
                     <% if(currentUser.isAdmin){ %>

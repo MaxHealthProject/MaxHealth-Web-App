@@ -68,7 +68,8 @@ var authRoutes     = require("./routes/auth.js"),
  blogRoutes        = require("./routes/blog.js"),
  searchRoutes      = require("./routes/search.js"),
  cartRoutes        = require("./routes/cart.js"),
- transactionRoutes = require("./routes/transaction.js");
+ transactionRoutes = require("./routes/transaction.js"),
+ profileRoutes     = require("./routes/profile.js");
 
 app.use(authRoutes);
 app.use(indexRoutes);
@@ -76,6 +77,7 @@ app.use(blogRoutes);
 app.use(searchRoutes);
 app.use(cartRoutes);
 app.use(transactionRoutes);
+app.use(profileRoutes);
 
 
 //var fpgrowthAlgo=require("./fpgrowthAlgo.js");

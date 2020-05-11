@@ -8,6 +8,14 @@ var userSchema = new mongoose.Schema({
     password: String,
     isAdmin: {type: Boolean, default: false},
 
+    mobileNo: String,
+    address: {
+        addressLine: String,
+        city: String,
+        state: String,
+        zip: String
+    },
+
     cart: [
         {
             _id: false,

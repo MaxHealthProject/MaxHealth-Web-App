@@ -17,22 +17,26 @@ router.get("/cart/transaction", isLoggedIn, function (req, res) {
 router.post("/cart/transaction", isLoggedIn, function (req, res) {
     var cartAmount = req.body.cartAmount;
 
-    User.findById(req.user.id, function (err, foundUser) {
-        if (err) {
-            console.log(err);
-        } else {
-            // create arr of items present in user's cart
-            // and then save that array to transactions db
-            generatePIdsArr(req, res, foundUser, cartAmount, saveArrToDb);
-        }
-    });
+    if (!req.user.address.addressLine) {
+        res.redirect("/account");
+    } else {
+        User.findById(req.user.id, function (err, foundUser) {
+            if (err) {
+                console.log(err);
+            } else {
+                // create arr of items present in user's cart
+                // and then save that array to transactions db
+                generatePIdsArr(req, res, foundUser, cartAmount, saveArrToDb);
+            }
+        });
+    }
 });
 
 
 
 function generatePIdsArr(req, res, foundUser, cartAmount, callback) {
     var pIdsArr = [];
-    var userId= req.user.id;
+    var userId = req.user.id;
     foundUser.cart.forEach(function (itemDetails, index) {
         pIdsArr.push(itemDetails.item);
     });

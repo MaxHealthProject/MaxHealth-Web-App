@@ -1,5 +1,5 @@
 var express = require("express");
-var router=express.Router();
+var router = express.Router();
 
 // Models
 var Product = require("../models/product.js");
@@ -12,7 +12,7 @@ router.get("/cart", isLoggedIn, function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            res.render("cart.ejs", { user: populatedUser});
+            res.render("cart.ejs", { user: populatedUser });
         }
     });
 });
@@ -99,13 +99,8 @@ router.delete("/cart", isLoggedIn, function (req, res) {
 });
 
 
-router.get("/thankyou", isLoggedIn, function(req, res){
-    if(!req.user.address.addressLine){
-        res.redirect("/account");
-    }else{
-        res.render("thankyou.ejs");
-    }
-    
+router.get("/thankyou", isLoggedIn, function (req, res) {
+    res.render("thankyou.ejs");
 });
 
 

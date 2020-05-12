@@ -8,7 +8,6 @@ router.use(methodOverride("_method"));
 // BLOG Models
 var Blog = require("../models/blog");
 
-
 // SHOW ALL BLOGS
 router.get("/blog", function (req, res) {
     Blog.find({}, function (err, foundBlogs) {

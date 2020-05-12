@@ -54,7 +54,7 @@ function saveArrToDb(req, res, pIdsArr, userId, cartAmount) {
                     //var fpgrowthAlgo = require("../fpgrowthAlgo.js");
                     //fpgrowthAlgo;
                     // render homepage or successful trasaction page
-                    res.redirect("/featured");
+                    res.redirect("/thankyou");
                 }
             });
             // User.findById(req.user.id, function (err, foundUser) {

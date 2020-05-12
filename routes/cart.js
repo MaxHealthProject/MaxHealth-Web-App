@@ -12,7 +12,7 @@ router.get("/cart", isLoggedIn, function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            res.render("cart.ejs", { user: populatedUser });
+            res.render("cart.ejs", { user: populatedUser});
         }
     });
 });
@@ -97,6 +97,17 @@ router.delete("/cart", isLoggedIn, function (req, res) {
         }
     });
 });
+
+
+router.get("/thankyou", isLoggedIn, function(req, res){
+    if(!req.user.address.addressLine){
+        res.redirect("/account");
+    }else{
+        res.render("thankyou.ejs");
+    }
+    
+});
+
 
 // Middleware
 function isLoggedIn(req, res, next) {

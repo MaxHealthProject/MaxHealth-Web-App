@@ -12,15 +12,6 @@ mongoose.connect("mongodb+srv://sahil:h7g7km3SPEGnWga@cluster0-b5tqv.mongodb.net
 // mongodb+srv://sahil:<password>@cluster0-b5tqv.mongodb.net/test?retryWrites=true&w=majority
 // mongodb+srv://sahil:<password>@cluster0-b5tqv.mongodb.net/test
 
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://sahil:h7g7km3SPEGnWga@cluster0-b5tqv.mongodb.net/test?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
-
 // Body-parser
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
